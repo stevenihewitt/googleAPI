@@ -16,7 +16,6 @@ class GoogleAPI
   #adds the query and creates google url
   def add_query(passed_query)
     @query = passed_query
-    @url = 
     @url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=#{URI.escape(@query.gsub!(" ", "+"))}" 
     
   end
@@ -60,6 +59,7 @@ class GoogleAPI
   #This function is purely for testing purposes  
   def output_test_results
     
+    @search_results.clear
     @search_results << ["Webpage 1", "http://www.webpage1.com", "Snippet about Webpage 1"]
     @search_results << ["Webpage 2", "http://www.webpage2.com", "Snippet about Webpage 2"]
     @search_results << ["Webpage 3", "http://www.webpage3.com", "Snippet about Webpage 3"]
