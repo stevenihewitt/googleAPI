@@ -37,19 +37,25 @@ class GoogleAPI
     #ecode results
     result = ActiveSupport::JSON.decode(open(@url).read)["responseData"]["results"]
   
-  #for each result, add to an array to an array
+    #for each result, add to an array to an array
     result.each do |page|
-      @search_results << [ page['title'], page['url'], page['content'] ]
-    
+      @search_results << [ page['title'], page['url'], page['content'] ]   
       end
+      
+    return @search_results
     
+  end
+  
+  def search_results_to_s
     #this just displays the data to terminal
     @search_results.each  do |x| 
-       puts "---Search Result---"+ "-"*30
-       puts x    
+      puts "---Search Result---"+ "-"*30
+      puts x    
       end
-      puts "-"*50
-  end
+      
+    puts "-"*50
+      
+    end
   
   #This function is purely for testing purposes  
   def output_test_results
