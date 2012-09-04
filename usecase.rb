@@ -2,7 +2,7 @@ require "./googleAPI"
 
 test = GoogleAPI.new
 
-test.add_query("Pokemon") #add query
+test.add_query("Parenting 101") #add query
 test.return_query #display query on console
 test.return_google_address #display google url on console
 
