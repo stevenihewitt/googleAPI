@@ -26,8 +26,9 @@ class DocMatrix
    
      	elsif
   			@document_collection.each {|document| #loop over documents
-  			  puts document
-  			  puts ""
+  			  
+  			  puts document #print the document here to examine
+  			  puts "================="
 				#splits into words, removes small words, lower cases, adds to hash, and gets number of occurrences
 				@words_in_documents << document.downcase.scan(/[a-z0-9'-]{3,}/)
 														.inject(Hash.new 0){ |hash, word| hash[word] += 1; hash } 

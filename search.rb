@@ -9,7 +9,7 @@ matrix = DocMatrix.new
 
 #Create a new search
 search = GoogleAPI.new
-search.add_query("Paris Hilton") #add query
+search.add_query("Parenting 101") #add query
 
 results = search.return_search_results #get google search results
 
