@@ -16,7 +16,7 @@ class GoogleAPI
   #adds the query and creates google url
   def add_query(passed_query)
     @query = passed_query
-    @url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=#{URI.escape(@query.gsub!(" ", "+"))}"
+    @url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=#{URI.escape(@query.gsub!(" ", "+"))}&rsz=large"
 
     
   end
