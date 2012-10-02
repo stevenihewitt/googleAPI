@@ -17,5 +17,5 @@ results.each do |result|
   matrix.add_doc(result[snippet].to_s) #Add snippet to doc matrix
 end
 
-matrix.create_matrix
+matrix.create_matrix #create document matrix
 
