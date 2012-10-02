@@ -63,47 +63,57 @@ def add_query(query)
   
 end
 
+def adjacent_range array, position, scope
+  [0, (position-scope)].max..[array.size-1, (position+scope)].min
+end
+ 
+def adjacent_items array, position, scope
+  adjacent_range(array, position, scope).map {|i| array[i]}
+end
+
 def lookup_positive_words
 
 #how many words to look either side of query
 scope = 5
 text_length = @text.length - 1
 
-  if (@query == "")|(@text == nil)
+  if (@query == "")|(@text == nil) #do nothing is text is empty
     else
       
-      #@text.each do |word|
-      for index in 0..text_length
-        
-        word = @text[index].tr(".", "")
-        if (word.downcase == @query) then
+      @text.each_with_index do |word, i|
+        if (word.downcase == @query)
           
-          puts "\nWord found at Index #{index}\n"
+          matches = adjacent_items(@text, i, scope) & @positive
           
-
+          #this can be commented out, its just for terminal output
+          # puts "\nWord: #{word}"
+          # puts "Adjacent (#{scope}): #{adjacent_items(@text, i, scope)}"
+          # puts matches
+          #####
           
-          startpoint = index - scope
-          finishpoint = index + scope
-          words_in_scope = @text[(startpoint < 0 ? 0 : startpoint)..(finishpoint < text_length ? finishpoint : text_length)]          
-          print words_in_scope
-          matches = words_in_scope & @positive
           if !matches.empty?
-            puts "\nMatches Found\n"
+            puts "\nMatches Found\n #{matches}"
+            @text[i] = @text[i] + "++"
           else 
             puts "\nNo Matches Found\n"
-          end
-        end
+          end   
+          
         
-      end
-      #find array element with content equal to the query
-      #Look at array elements either side within scope
-      #if a keyword is found - append queryword in array with ++
+        end
+
+       end
       
+        puts "\n\n"
+        print @text
+        
       
     end
 
 end
 
+def return_text
+  return @text
+end
 
 
  
