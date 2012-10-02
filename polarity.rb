@@ -48,6 +48,7 @@ def initialize
   Profound
   Impressionistic
   Radical
+  sworn
   )
 end
 
@@ -95,7 +96,7 @@ text_length = @text.length - 1
             puts "\nMatches Found\n #{matches}"
             @text[i] = @text[i] + "++"
           else 
-            puts "\nNo Matches Found\n"
+            #puts "\nNo Matches Found\n"
           end   
           
         
@@ -104,7 +105,8 @@ text_length = @text.length - 1
        end
       
         puts "\n\n"
-        print @text
+       
+       # print @text
         
       
     end
